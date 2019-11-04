@@ -1,0 +1,28 @@
+input.instance {
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: #7fff73;
+    display: block;
+    clear:both;
+    padding: 2em;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input.instance:disabled {
+    background-color: #cfcfcf;
+}
+
+#instances {
+    text-align: center;
+}
+
+body {
+    font-family: arial;
+}
+
+a {
+    color: #b473ff;
+}
