@@ -20,7 +20,7 @@ def annotation_file(project_name, user_name):
     return join(annotation_dir(project_name), user_name+".json")
 
 def gold_file(project_name):
-    return join(project_dir(project_name), "gold.json")
+    return join(project_dir(project_name), "gold.tsv")
 
 def make_tuples(instances, k, p):
     n = len(instances)

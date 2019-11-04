@@ -147,7 +147,7 @@ while True:
         while True:
             tup_id, tup = next_tuple(project_name, user_name)
             if tup_id is None:
-                print ("there is no tuple to annotate, exiting")
+                print ("there are no tuple to annotate, exiting")
                 break
             answer_best = prompt_bws(tup, project_dict["phenomenon"])
             if answer_best=="EXIT":
