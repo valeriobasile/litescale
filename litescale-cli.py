@@ -51,11 +51,6 @@ questions_new = [
     },
     {
         'type': 'input',
-        'name': 'description',
-        'message': 'Enter a description for the project'
-    },
-    {
-        'type': 'input',
         'name': 'phenomenon',
         'message': 'Enter the phenomenon to annotate (e.g., offensive, positive)'
     },
@@ -164,8 +159,7 @@ while True:
             if answer_worst=="EXIT":
                 break
             if answer_worst=="PROGRESS":
-                done, total = progress(project_name, user_name)
-                print ("progress: {0}/{1} {2:.1f}%".format(done, total, 100.0*(done/total)))
+                prompt_progress(project_name, user_name)
                 continue
             annotate(project_name, user_name, tup_id, answer_best, answer_worst)
     elif main_choice == 'gold':
@@ -178,7 +172,6 @@ while True:
         answers = prompt(questions_new)
         new_project(
             answers['project_name'],
-            answers['description'],
             answers['phenomenon'],
             answers['tuple_size'],
             answers['replication'],
