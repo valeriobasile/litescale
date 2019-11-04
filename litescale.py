@@ -88,10 +88,9 @@ def progress(project_name, user_name):
     annotations = get_annotations(project_name, user_name)
     return len(annotations), len(project_dict["tuples"])
 
-def new_project(project_name, description, phenomenon, tuple_size, replication, instance_file):
+def new_project(project_name, phenomenon, tuple_size, replication, instance_file):
     project_dict = {
         "project_name": project_name,
-        "description": description,
         "phenomenon": phenomenon,
         "tuple_size": tuple_size,
         "replication": replication,
@@ -109,6 +108,7 @@ def new_project(project_name, description, phenomenon, tuple_size, replication, 
         replication
     )
 
+    mkdir(PROJECT_ROOT)
     mkdir(project_dir(project_name))
     with open(project_file(project_name), "w") as fo:
         json.dump(project_dict, fo)
