@@ -6,13 +6,19 @@ input.instance {
     background-color: #7fff73;
     display: block;
     clear:both;
-    padding: 2em;
+    padding: 1em;
     margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 95%;
 }
+
+input.instance:hover {
+    background-color: #c5ff73;
+}
+
 input.instance:disabled {
-    background-color: #cfcfcf;
+    background-color: #8aba85;
 }
 
 #instances {
