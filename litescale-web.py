@@ -3,7 +3,7 @@
 from bottle import route, get, post, run, template, request, response, redirect, TEMPLATE_PATH, static_file
 from litescale import *
 from glob import glob
-
+import os
 TEMPLATE_PATH.append('web/views')
 
 @route('/static/css/<filename:re:.*\.css>')
@@ -27,6 +27,29 @@ def logout():
 @route('/start')
 def start():
     return template('projects.tpl', action='project', project_list=project_list())
+
+@get('/new')
+def new_get():
+    return template('new.tpl')
+@post('/new')
+def new_post():
+    try:
+        os.remove("tmp.tsv")
+    except:
+        pass
+    request.files.get('instance_file').save("tmp.tsv")
+    new_project(
+        request.forms.get('project_name'),
+        request.forms.get('phenomenon'),
+        eval(request.forms.get('tuple_size')),
+        eval(request.forms.get('replication')),
+        "tmp.tsv"
+        )
+    try:
+        os.remove("tmp.tsv")
+    except:
+        pass
+    redirect("/")
 
 @route('/project/<project_name>')
 def project(project_name):
