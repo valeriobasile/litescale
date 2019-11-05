@@ -1,5 +1,5 @@
 from glob import glob
-from os.path import join, basename, isfile
+from os.path import join, basename, isfile, isdir
 from os import mkdir
 import csv
 from math import floor, gcd
@@ -108,11 +108,14 @@ def new_project(project_name, phenomenon, tuple_size, replication, instance_file
         replication
     )
 
-    mkdir(PROJECT_ROOT)
-    mkdir(project_dir(project_name))
+    if not isdir(PROJECT_ROOT):
+        mkdir(PROJECT_ROOT)
+    if not isdir(project_dir(project_name)):
+        mkdir(project_dir(project_name))
     with open(project_file(project_name), "w") as fo:
         json.dump(project_dict, fo)
-    mkdir(annotation_dir(project_name))
+    if not isdir(annotation_dir(project_name)):
+        mkdir(annotation_dir(project_name))
 
 def gold(project_name):
     project_dict = get_project(project_name)

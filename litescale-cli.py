@@ -73,7 +73,7 @@ questions_new = [
     {
         'type': 'input',
         'name': 'instance_file',
-        'message': 'Read instances from file',
+        'message': 'Read instances from tab-separated file',
         'validate': lambda val: isfile(val),
         'default': 'example.tsv'
     }
