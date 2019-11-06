@@ -24,3 +24,6 @@ The web interface is started with:
 and accessed at
 
     http://localhost:8088/
+ 
+--
+Check the [tutorial here](docs/tutorial.md).
