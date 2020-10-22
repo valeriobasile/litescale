@@ -57,7 +57,7 @@ def project(project_name):
     tup_id, tup = next_tuple(project_name, user_name)
     project_dict = get_project(project_name)
     if tup is None:
-        return template('finished.tpl')
+        return template('finished.tpl', error="no_tuple")
     else:
         done, total = progress(project_name, user_name)
         progress_string = "progress: {0}/{1} {2:.1f}%".format(done, total, 100.0*(done/total))
@@ -75,8 +75,11 @@ def goldmenu():
 
 @route('/gold/<project_name>')
 def goldpage(project_name):
-    gold(project_name)
-    return static_file("gold.tsv", root='projects/{0}/'.format(project_name), download="gold-{0}.tsv".format(project_name))
+    if not are_annotations(project_name):
+        return template('finished.tpl', error="no_annot")
+    else:
+        gold(project_name)
+        return static_file("gold.tsv", root='projects/{0}/'.format(project_name), download="gold-{0}.tsv".format(project_name))
 
 @route('/')
 def index():

@@ -167,6 +167,9 @@ while True:
             print ("there are no projects")
             continue
         project_name = prompt(questions_start)['project_name']
+        if not are_annotations(project_name):
+            print ("there are no annotations, exiting")
+            continue
         gold(project_name)
     elif main_choice == 'new':
         answers = prompt(questions_new)
