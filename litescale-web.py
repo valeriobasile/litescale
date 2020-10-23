@@ -75,8 +75,8 @@ def goldmenu():
 
 @route('/gold/<project_name>')
 def goldpage(project_name):
-    if not are_annotations(project_name):
-        return template('finished.tpl', error="no_annot")
+    if not empty_annotation(project_name):
+        return template('finished.tpl', error="no_tuple")
     else:
         gold(project_name)
         return static_file("gold.tsv", root='projects/{0}/'.format(project_name), download="gold-{0}.tsv".format(project_name))

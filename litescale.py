@@ -117,15 +117,15 @@ def new_project(project_name, phenomenon, tuple_size, replication, instance_file
     if not isdir(annotation_dir(project_name)):
         mkdir(annotation_dir(project_name))
 
-def are_annotations(project_name):
+def empty_annotation(project_name):
     annotation_list = glob(join(annotation_dir(project_name), "*.json"))
 
     for annotation_file in annotation_list:
         with open(annotation_file) as f:
             data = json.load(f)
             if data:
-                return True
-    return False
+                return False
+    return True
 
 def gold(project_name):
     project_dict = get_project(project_name)
