@@ -27,3 +27,5 @@ and accessed at
  
 ---
 Check the [tutorial here](docs/tutorial.md).
+---
+[Litescale online](http://gingerbeard.alwaysdata.net/litescale-web/home)
